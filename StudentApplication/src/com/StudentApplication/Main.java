@@ -2,7 +2,6 @@ package com.StudentApplication;
 import java.util.Scanner;
 import java.lang.Thread;
 
-import java.io.IOException;
 public class Main {
 	
 	public static void studentMethod() {
@@ -96,7 +95,7 @@ public class Main {
 	                        e.printStackTrace();
 	                    }
 	                }
-
+	                sc.close();
 	                return ;
 	            default:
 	                System.out.println("Invalid try again!!");
@@ -188,7 +187,7 @@ public class Main {
 	                        e.printStackTrace();
 	                    }
 	                }
-
+	                sc.close();
 	                return;
 	            default:
 	                System.out.println("Invalid try again");
@@ -201,7 +200,7 @@ public class Main {
         System.out.println("| ENROLLMENT DETAILS|");
         System.out.println("+-----+-----------------+---------------+-----+----------+");
 		Enrollment en=new Enrollment();
-		en.run();
+		Assessment.run();
 		en.showAllStudent();
 		System.out.println("Returning to Main Screen");
 		for (int i = 0; i < 3; i++) {
@@ -224,7 +223,7 @@ public class Main {
         System.out.println("| REPORT|");
         System.out.println("+-----+-----------------+---------------+-----+----------+");
 		en.showAllStudent();
-		en.run();
+		Assessment.run();
 		en.showAllStudent();
 		System.out.println("Do you want to delete a id?\n1.  Yes                   2.   No");
 		int ch=sc.nextInt();
@@ -240,7 +239,10 @@ public class Main {
 		        } catch (InterruptedException e) {
 		            e.printStackTrace();
 		        }
-			return;}
+		        
+			}
+			sc.close();
+			return;
 		}
 		else {
 			System.out.println("Returning to Main Screen");
@@ -251,7 +253,10 @@ public class Main {
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
-			return;}
+	        
+			}
+		sc.close();
+		return;
 		}
 	}
 	
@@ -260,7 +265,7 @@ public class Main {
 		// TODO Auto-generated method stub
         System.out.println("|STUDENT MANAGEMENT|");
 		do{
-		front:
+		
 			System.out.println("+-----+-----------------+---------------+-----+----------+");
         System.out.println("|MAIN MENU|");
         System.out.println("+-----+-----------------+---------------+-----+----------+");
@@ -299,6 +304,7 @@ public class Main {
 				            e.printStackTrace();
 				        }
 				    }
+				  sc.close();
 				  System.exit(0);
 			default:
 				System.out.println("Please enter correct number(1-5)");

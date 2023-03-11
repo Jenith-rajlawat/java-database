@@ -1,82 +1,8 @@
 package com.StudentApplication;
 import java.sql.*;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Assessment {
-//  public static void run() {
-//    try {
-//      // connect to the database
-//      Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/studentdb?useSSL=false", "root", "root");
-//
-//      // create a statement
-//      Statement stmt = conn.createStatement();
-//
-//      // select data from student and course tables
-//      ResultSet rs = stmt.executeQuery("SELECT s.id, s.name, c.courseId, c.name as cname FROM student s INNER JOIN course c ON s.courseId = c.courseId;");
-//
-//      // prompt the user to input values for each student's marks
-//      Scanner scanner = new Scanner(System.in);
-//      while (rs.next()) {
-//        int studentId = rs.getInt("id");
-//        String studentName = rs.getString("name");
-//        int courseId = rs.getInt("courseId");
-//        String courseName = rs.getString("cname");
-//        double tutorial1, tutorial2, exam;
-//
-//        do {
-//          System.out.print("Enter a value for tutorial1 (0-20) for student " + studentName + " in " + courseName + ": ");
-//          tutorial1 = scanner.nextDouble();
-//        } while (tutorial1 < 0 || tutorial1 > 20);
-//
-//        do {
-//          System.out.print("Enter a value for tutorial2 (0-20) for student " + studentName + " in " + courseName + ": ");
-//          tutorial2 = scanner.nextDouble();
-//        } while (tutorial2 < 0 || tutorial2 > 20);
-//
-//        do {
-//          System.out.print("Enter a value for exam (0-20) for student " + studentName + " in " + courseName + ": ");
-//          exam = scanner.nextDouble();
-//        } while (exam < 0 || exam > 20);
-//
-//        // calculate the average of tutorial1, tutorial2, and exam
-//        double internal = (tutorial1 + tutorial2 + exam) / 3.0;
-//
-//        // check if the row already exists
-//        PreparedStatement checkStmt = conn.prepareStatement("SELECT COUNT(*) AS count FROM assessment WHERE id = ? AND courseId = ?");
-//        checkStmt.setInt(1, studentId);
-//        checkStmt.setInt(2, courseId);
-//        ResultSet checkRs = checkStmt.executeQuery();
-//        checkRs.next();
-//        int count = checkRs.getInt("count");
-//
-//        if (count == 0) {
-//          // insert values into the assessment table
-//          String sql = "INSERT INTO assessment (id, name, courseId, cname, tutorial1, tutorial2, exam, internal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-//          PreparedStatement pstmt = conn.prepareStatement(sql);
-//          pstmt.setInt(1, studentId);
-//          pstmt.setString(2, studentName);
-//          pstmt.setInt(3, courseId);
-//          pstmt.setString(4, courseName);
-//          pstmt.setDouble(5, tutorial1);
-//          pstmt.setDouble(6, tutorial2);
-//          pstmt.setDouble(7, exam);
-//          pstmt.setDouble(8, internal);
-//          pstmt.executeUpdate();
-//          pstmt.close();
-//        } else {
-//          System.out.println("Assessment for student " + studentName + " in " + courseName + " already exists. Skipping...");
-//        }
-//      }
-//
-//      // close the resources
-//      rs.close();
-//      stmt.close();
-//      conn.close();
-//    } catch (SQLException e) {
-//      System.out.println("Error: " + e.getMessage());
-//    }
-//  }
 	public static void run() {
 	  try {
 		    // connect to the database
@@ -152,9 +78,12 @@ public class Assessment {
 		        conn.close();
 		        } 
 		     
-		    }} catch (SQLException e) {
+		    }scanner.close();}
+	  catch (SQLException e) {
 		        System.out.println("Error: " + e.getMessage());
-		      }}
+		      }
+	  
+	}
 		        
 
 
