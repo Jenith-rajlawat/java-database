@@ -71,14 +71,14 @@ public class Assessment {
 		          System.out.println("Assessment for student " + studentName + " in " + courseName + " already exists. Skipping...");
 		        }
 		      } else {
-		        System.out.println("Student with ID " + id.trim() );
+		        System.out.println("Student with ID " + id.trim()+"doesnot exist" );
 		        // close the resources
 		        rs.close();
 		        stmt.close();
 		        conn.close();
 		        } 
 		     
-		    }scanner.close();}
+		    }}
 	  catch (SQLException e) {
 		        System.out.println("Error: " + e.getMessage());
 		      }

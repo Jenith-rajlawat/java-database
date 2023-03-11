@@ -95,7 +95,7 @@ public class Main {
 	                        e.printStackTrace();
 	                    }
 	                }
-	                sc.close();
+	                
 	                return ;
 	            default:
 	                System.out.println("Invalid try again!!");
@@ -187,7 +187,7 @@ public class Main {
 	                        e.printStackTrace();
 	                    }
 	                }
-	                sc.close();
+	                
 	                return;
 	            default:
 	                System.out.println("Invalid try again");
@@ -200,7 +200,7 @@ public class Main {
         System.out.println("| ENROLLMENT DETAILS|");
         System.out.println("+-----+-----------------+---------------+-----+----------+");
 		Enrollment en=new Enrollment();
-		Assessment.run();
+		Enrollment.run();
 		en.showAllStudent();
 		System.out.println("Returning to Main Screen");
 		for (int i = 0; i < 3; i++) {
@@ -211,10 +211,9 @@ public class Main {
 	            e.printStackTrace();
 	        }
 	    }
-
+		return;
 		
-		
-	}
+			}
 	
 	public static void assessMethod() {
 		Scanner sc=new Scanner(System.in);
@@ -241,7 +240,6 @@ public class Main {
 		        }
 		        
 			}
-			sc.close();
 			return;
 		}
 		else {
@@ -255,7 +253,7 @@ public class Main {
 	        }
 	        
 			}
-		sc.close();
+		
 		return;
 		}
 	}
@@ -304,7 +302,7 @@ public class Main {
 				            e.printStackTrace();
 				        }
 				    }
-				  sc.close();
+				  
 				  System.exit(0);
 			default:
 				System.out.println("Please enter correct number(1-5)");

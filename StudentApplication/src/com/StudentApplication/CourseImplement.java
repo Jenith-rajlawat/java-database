@@ -21,6 +21,7 @@ public class CourseImplement implements CourseInterface {
 				if(cnt!=0)
 					System.out.println("Student Registered Successfully!!!");
 				}catch(Exception ex) {
+					System.out.println("The id is primary and must be unique");
 					ex.printStackTrace();
 				}
 		
@@ -60,6 +61,7 @@ public class CourseImplement implements CourseInterface {
 			    System.out.format("%-14d %-20s %-16s \n", courseId, name, Instructor);
 			}}//if we have anything in this result the loop will execute
 				catch(Exception ex) {
+					System.out.println("The searching id doesnot exits");
 		ex.printStackTrace();}
 	}
 
@@ -77,6 +79,7 @@ public class CourseImplement implements CourseInterface {
 			System.out.println("Course Updated Successfully !!");
 		}
 		catch(Exception ex) {
+			System.out.println("The searched id doesnot exist");
 			ex.printStackTrace();
 		}
 		
@@ -96,6 +99,7 @@ public class CourseImplement implements CourseInterface {
 		}
 		catch(Exception ex)
 		{
+			System.out.println("No such Id");
 			ex.printStackTrace();
 		}
 	}

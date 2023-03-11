@@ -22,6 +22,7 @@ public class StudentImplement implements StudentInterface{
 		if(cnt!=0)
 			System.out.println("Student Registered Successfully!!!");
 		}catch(Exception ex) {
+			System.out.println("The id is primary and must be unique");
 			ex.printStackTrace();
 		}
 		}
@@ -68,6 +69,7 @@ public class StudentImplement implements StudentInterface{
 		}
 			
 		catch(Exception ex) {
+			System.out.println("No such id ");
 			ex.printStackTrace();
 		}
 	}
@@ -86,6 +88,7 @@ public class StudentImplement implements StudentInterface{
 			System.out.println("Student Updated Successfully !!");
 		}
 		catch(Exception ex) {
+			System.out.println("No such id");
 			ex.printStackTrace();
 		}
 	}
@@ -104,6 +107,7 @@ public class StudentImplement implements StudentInterface{
 		}
 		catch(Exception ex)
 		{
+			System.out.println("No such id");
 			ex.printStackTrace();
 		}
 	}
