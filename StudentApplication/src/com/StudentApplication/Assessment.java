@@ -190,6 +190,22 @@ public class Assessment {
 	        }
 	    }
 	}
+  public void deleteCourse(int id) {
+		// TODO Auto-generated method stub
+	  Connection con = DBConnection.createDBConnection();
+		String query="delete from assessment where id=?";
+		try {
+			PreparedStatement pstm=con.prepareStatement(query);
+			pstm.setInt(1, id);
+		int cnt=pstm.executeUpdate();
+		if(cnt!=0)
+			System.out.println("Successfully deleted");
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
 }
 
                 
