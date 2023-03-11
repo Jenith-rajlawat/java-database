@@ -10,13 +10,14 @@ public class StudentImplement implements StudentInterface{
 		// TODO Auto-generated method stub
 		//first to get the connection to our database we have our db connection class so call it
 		con=DBConnection.createDBConnection();
-		String query="insert into student values(?,?,?,?);";
+		String query="insert into student values(?,?,?,?,?);";
 		try {
 		PreparedStatement pstm=con.prepareStatement(query);
 		pstm.setInt(1, stu.getId());
 		pstm.setString(2, stu.getName());
 		pstm.setDouble(3, stu.getPhoneNumber());
 		pstm.setInt(4, stu.getAge());
+		pstm.setInt(5, stu.getCourseId());
 		int cnt=pstm.executeUpdate();
 		if(cnt!=0)
 			System.out.println("Student Registered Successfully!!!");
@@ -33,14 +34,15 @@ public class StudentImplement implements StudentInterface{
 		try {
 			Statement stmt=con.createStatement();
 			ResultSet result=stmt.executeQuery(query);
-			System.out.println("ID    NAME                PHONE NUMBER      AGE");
-			System.out.println("-----------------------------------------------");
+			System.out.println("ID    NAME                PHONE NUMBER      AGE     CourseID");
+			System.out.println("-----------------------------------------------------------------");
 			while(result.next()) {
 			    int id = result.getInt(1);
 			    String name = result.getString(2);
 			    long phoneNumber = result.getLong(3);
 			    int age = result.getInt(4);
-			    System.out.format("%-5d %-20s %-16d %-4d\n", id, name, phoneNumber, age);
+			    int courseId=result.getInt(5);
+			    System.out.format("%-5d %-20s %-16d %-8d %-4d\n", id, name, phoneNumber, age,courseId);
 			}//if we have anything in this result the loop will execute
 		}
 		catch(Exception ex) {
@@ -56,14 +58,15 @@ public class StudentImplement implements StudentInterface{
 		try {
 			Statement stmt=con.createStatement();
 			ResultSet result=stmt.executeQuery(query);
-			System.out.println("ID    NAME                PHONE NUMBER      AGE");
-			System.out.println("-----------------------------------------------");
+			System.out.println("ID    NAME                PHONE NUMBER      AGE     CourseID");
+			System.out.println("-----------------------------------------------------------------");
 			while(result.next()) {
-			     id = result.getInt(1);
+			    id = result.getInt(1);
 			    String name = result.getString(2);
 			    long phoneNumber = result.getLong(3);
 			    int age = result.getInt(4);
-			    System.out.format("%-5d %-20s %-16d %-4d\n", id, name, phoneNumber, age);
+			    int courseId=result.getInt(5);
+			    System.out.format("%-5d %-20s %-16d %-8d %-4d\n", id, name, phoneNumber, age,courseId);
 			}//if we have anything in this result the loop will execute
 		}
 			

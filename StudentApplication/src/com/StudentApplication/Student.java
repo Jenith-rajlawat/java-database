@@ -2,11 +2,22 @@ package com.StudentApplication;
 
 public class Student {
       	private int id;
-      	private String name;
+		private String name;
       	private long phonenumber;
       	private int age;
-      	
-      	public Student() {
+      	private int courseId;
+      	@Override
+		public String toString() {
+			return "Student [id=" + id + ", name=" + name + ", phonenumber=" + phonenumber + ", age=" + age
+					+ ", courseId=" + courseId + "]";
+		}
+      	public int getCourseId() {
+			return courseId;
+		}
+		public void setCourseId(int courseId) {
+			this.courseId = courseId;
+		}
+		public Student() {
       		
       	}
 		public int getId() {
@@ -15,10 +26,7 @@ public class Student {
 		public void setId(int id) {
 			this.id = id;
 		}
-		@Override
-		public String toString() {
-			return "Student [id=" + id + ", name=" + name + ", phonenumber=" + phonenumber + ", age=" + age + "]";
-		}
+
 		public String getName() {
 			return name;
 		}

@@ -9,7 +9,7 @@ public class DBConnection {
 			//load driver
 		Class.forName("com.mysql.jdbc.Driver");
 		//get connection
-		String url="jdbc:mysql://localhost:3306/studentdb?useSSL=false";
+		String url="jdbc:mysql://localhost:3306/studentdb?useSSL=false";//here till 3306 its the default and then you just give the database to which it must link to
 		String username="root";
 		String password="root";
 				
