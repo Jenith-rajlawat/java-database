@@ -34,8 +34,6 @@ public class CourseImplement implements CourseInterface {
 		try {
 			Statement stmt=con.createStatement();
 			ResultSet result=stmt.executeQuery(query);
-			System.out.println("CourseId       NAME                Instructor");
-			System.out.println("-------------------------------------------");
 			while(result.next()) {
 			    int courseId = result.getInt(1);
 			    String name = result.getString(2);
@@ -55,8 +53,6 @@ public class CourseImplement implements CourseInterface {
 		try {
 			Statement stmt=con.createStatement();
 			ResultSet result=stmt.executeQuery(query);
-			System.out.println("CourseID          NAME               Instructor ");
-			System.out.println("-----------------------------------------------");
 			while(result.next()) {
 			     courseId = result.getInt(1);
 			    String name = result.getString(2);

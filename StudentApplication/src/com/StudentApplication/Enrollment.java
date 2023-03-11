@@ -47,26 +47,70 @@ public class Enrollment {
             }
         }
     }
+//    public void showAllStudent() {
+//		// TODO Auto-generated method stub
+//    	Connection con;
+//		con=DBConnection.createDBConnection();
+//		String query="select * from enrollment";
+//		try {
+//			Statement stmt=con.createStatement();
+//			ResultSet result=stmt.executeQuery(query);
+//			System.out.println("ID    CourseId      EnrollmentDate");
+//			System.out.println("------------------------------------------");
+//			while(result.next()) {
+//				 int id = result.getInt("id");
+//				    int courseId = result.getInt("courseId");
+//				    Date enrollDate = result.getDate("enrollDate");
+//			    System.out.format("%-5d %-9d %-16s\n", id, courseId, enrollDate);
+//			}//if we have anything in this result the loop will execute
+//		}
+//		catch(Exception ex) {
+//			ex.printStackTrace();
+//		}
     public void showAllStudent() {
-		// TODO Auto-generated method stub
-    	Connection con;
-		con=DBConnection.createDBConnection();
-		String query="select * from enrollment";
-		try {
-			Statement stmt=con.createStatement();
-			ResultSet result=stmt.executeQuery(query);
-			System.out.println("ID    CourseId      EnrollmentDate");
-			System.out.println("------------------------------------------");
-			while(result.next()) {
-				 int id = result.getInt("id");
-				    int courseId = result.getInt("courseId");
-				    Date enrollDate = result.getDate("enrollDate");
-			    System.out.format("%-5d %-9d %-16s\n", id, courseId, enrollDate);
-			}//if we have anything in this result the loop will execute
-		}
-		catch(Exception ex) {
-			ex.printStackTrace();
-		}
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet result = null;
+        
+        try {
+            // Connect to the database
+            con = DBConnection.createDBConnection();
+            
+            // Define the SQL statement to select from the enrollment table
+            String sql = "SELECT e.id, s.name, c.courseId, e.enrollDate " +
+                         "FROM enrollment e " +
+                         "INNER JOIN student s ON e.id = s.id " +
+                         "INNER JOIN course c ON e.courseId = c.courseId";
+            
+            // Prepare the statement
+            stmt = con.prepareStatement(sql);
+            
+            // Execute the statement
+            result = stmt.executeQuery();
+            
+            // Print the results
+            System.out.println("ID    Name             CourseId  EnrollmentDate");
+            System.out.println("--------------------------------------------------");
+            while (result.next()) {
+                int id = result.getInt("id");
+                String name = result.getString("name");
+                int courseId = result.getInt("courseId");
+                Date enrollDate = result.getDate("enrollDate");
+                System.out.format("%-5d %-16s %-9d %-16s\n", id, name, courseId, enrollDate);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Database error: " + ex.getMessage());
+        } finally {
+            // Close the database resources
+            try {
+                if (result != null) result.close();
+                if (stmt != null) stmt.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                System.out.println("Error closing database resources: " + ex.getMessage());
+            }
+        }
+    }
 	}
-}
+
 

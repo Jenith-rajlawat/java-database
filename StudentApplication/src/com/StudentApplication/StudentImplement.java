@@ -34,8 +34,6 @@ public class StudentImplement implements StudentInterface{
 		try {
 			Statement stmt=con.createStatement();
 			ResultSet result=stmt.executeQuery(query);
-			System.out.println("ID    NAME                PHONE NUMBER      AGE     CourseID");
-			System.out.println("-----------------------------------------------------------------");
 			while(result.next()) {
 			    int id = result.getInt(1);
 			    String name = result.getString(2);
@@ -58,8 +56,7 @@ public class StudentImplement implements StudentInterface{
 		try {
 			Statement stmt=con.createStatement();
 			ResultSet result=stmt.executeQuery(query);
-			System.out.println("ID    NAME                PHONE NUMBER      AGE     CourseID");
-			System.out.println("-----------------------------------------------------------------");
+			
 			while(result.next()) {
 			    id = result.getInt(1);
 			    String name = result.getString(2);
