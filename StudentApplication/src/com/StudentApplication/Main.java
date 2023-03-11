@@ -147,6 +147,13 @@ public class Main {
 		en.showAllStudent();
 	}
 	
+	public static void assessMethod() {
+		Assessment en=new Assessment();
+		en.showAllStudent();
+		en.run();
+		en.showAllStudent();
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		// TODO Auto-generated method stub
@@ -172,6 +179,8 @@ public class Main {
 			case 3:
 				enrollMethod();
 				break;
+			case 4:
+				assessMethod();
 			  case 5:
 				  System.out.println("Thank you for using our Application!!");
 				  System.exit(0);
